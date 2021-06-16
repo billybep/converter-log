@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/billybep/converter-log/issues"
   },
-  "homepage": "https://github.com/billybep/converter-log#readme"
+  "homepage": "https://github.com/billybep/converter-log#readme",
+  "dependencies": {}
 }
