@@ -1,5 +1,13 @@
 class View {
 
+  static successMessage = fileName => {
+    console.log(`Convert ${fileName} success`)
+  }
+
+  static failedMessage = errMsg => {
+    console.log(errMsg)
+  }
+
   static noInput = _ => {
     console.log('Please type "mytools -h" to show all commands');
   }
