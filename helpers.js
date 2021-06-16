@@ -15,7 +15,6 @@ const toJSonFile = (dirPath, fileName) => {
 const toPlainTextWithOutput = (dirPath, fileName, outputFile) => {
   const getDir = outputFile.split('/')
   let createDir = ''
-  console.log(getDir);
 
   getDir.forEach((directory, idx) => {
     if (getDir.length-2 !== idx && getDir[idx+1] != undefined ) {
@@ -28,8 +27,26 @@ const toPlainTextWithOutput = (dirPath, fileName, outputFile) => {
   fs.writeFileSync(path.join(__dirname, outputFile), data)
 }
 
+const toJSonFileWithOutput = (dirPath, fileName, outputFile) => {
+  const getDir = outputFile.split('/')
+  let createDir = ''
+
+  getDir.forEach((directory, idx) => {
+    if (getDir.length-2 !== idx && getDir[idx+1] != undefined ) {
+      createDir += `${getDir[idx+1]}`
+      createDir += `/`
+    }
+  })
+  fs.mkdirSync(createDir, { recursive: true })
+
+  const doc = fs.readFileSync(`${dirPath}/${fileName}`, 'utf-8')
+  const data = eval(JSON.stringify(doc))
+  fs.writeFileSync(path.join(__dirname, outputFile), data)
+}
+
 module.exports = {
   toPlainText,
   toJSonFile,
-  toPlainTextWithOutput
+  toPlainTextWithOutput,
+  toJSonFileWithOutput
 }

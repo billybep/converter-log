@@ -1,10 +1,13 @@
 const View = require('./View')
 const fs = require('fs')
-const { toPlainText, toJSonFile, toPlainTextWithOutput } = require('./helpers')
+const { toPlainText,
+        toJSonFile,
+        toPlainTextWithOutput,
+        toJSonFileWithOutput
+      } = require('./helpers')
 
 let dirPath = "/var/log"
 let dirBuf = Buffer.from(dirPath)
-
 
 class Controller {
 
@@ -36,7 +39,7 @@ class Controller {
               if (!flagFormat) {
                 toPlainText(dirPath, fileName)
               } else {
-                console.log('masuk ke flag format');
+
                 if (flagFormat.toLowerCase().includes('text')) {
                   toPlainText(dirPath, fileName)
                 } else if (flagFormat.toLowerCase().includes('json')) {
@@ -46,10 +49,9 @@ class Controller {
             } else {
               // Jika ada output, check output jika text/json convert sesuai output
               if (flagFormat.toLowerCase().includes('text')) {
-                console.log('text')
                 toPlainTextWithOutput(dirPath, fileName, outputFile)
               } else if (flagFormat.toLowerCase().includes('json')) {
-                console.log('json')
+                toJSonFileWithOutput(dirPath, fileName, outputFile)
               } else console.log("only support 'text' or 'json'")
             }
           }
