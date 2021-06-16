@@ -1,0 +1,20 @@
+{
+  "name": "converter-log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billybep/converter-log.git"
+  },
+  "keywords": [],
+  "author": "billybep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/billybep/converter-log/issues"
+  },
+  "homepage": "https://github.com/billybep/converter-log#readme"
+}
